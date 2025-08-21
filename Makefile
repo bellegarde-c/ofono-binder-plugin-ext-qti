@@ -61,7 +61,8 @@ CC = $(CROSS_COMPILE)gcc
 LD = $(CC)
 WARNINGS = -Wall
 BASE_FLAGS = -fPIC -fvisibility=hidden
-FULL_CFLAGS = $(BASE_FLAGS) $(CFLAGS) $(DEFINES) $(WARNINGS) -MMD -MP \
+BINDER_PLUGIN_FLAGS = -I/usr/include/aarch64-linux-gnu/ofonobinderpluginext
+FULL_CFLAGS = $(BASE_FLAGS) $(BINDER_PLUGIN_FLAGS) $(CFLAGS) $(DEFINES) $(WARNINGS) -MMD -MP \
   $(shell pkg-config --cflags $(PKGS))
 FULL_LDFLAGS = $(BASE_FLAGS) $(LDFLAGS) -shared \
   $(shell pkg-config --libs $(LDPKGS))
